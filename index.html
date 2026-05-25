@@ -1,0 +1,131 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import { Search, Sparkles, ShieldCheck, Users, FileCode2, GitCommitHorizontal, BrainCircuit, BarChart3, Menu } from "lucide-react";
+
+export default function GitLawbSearch() {
+  const floatingAnimation = {
+    animate: { y: [0, -10, 0] },
+    transition: { duration: 6, repeat: Infinity, ease: "easeInOut" as const },
+  };
+
+  return (
+    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Background Glows */}
+      <div className="absolute inset-0 bg-black" />
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-purple-700/20 blur-3xl rounded-full animate-pulse" />
+      <div className="absolute top-60 left-1/3 w-[500px] h-[250px] bg-blue-500/20 blur-3xl rounded-full animate-pulse" />
+
+      {/* Watermark */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute bottom-10 right-10 text-white/5 text-6xl font-bold rotate-[-20deg] select-none">
+          @GitLawbSearch
+        </div>
+      </div>
+
+      <div className="relative z-10">
+        {/* HEADER */}
+        <header className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between border-b border-white/10">
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-3xl bg-white flex items-center justify-center shadow-2xl">
+              <span className="text-black text-2xl font-bold">G</span>
+            </div>
+            <div>
+              <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">GitLawb Search</h1>
+              <div className="flex items-center gap-2 mt-1">
+                <p className="text-sm text-zinc-400">Code Intelligence Platform</p>
+                <span className="px-3 py-1 rounded-full bg-white/10 border border-white/10 text-xs">@GitLawbSearch</span>
+              </div>
+            </div>
+          </div>
+          <div className="hidden md:flex items-center gap-3">
+            <button className="px-5 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">Features</button>
+            <button className="px-5 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">Pricing</button>
+            <button className="px-5 py-3 rounded-2xl bg-white text-black font-semibold hover:scale-105 transition">Launch Platform</button>
+          </div>
+          <button className="md:hidden"><Menu /></button>
+        </header>
+
+        {/* HERO */}
+        <main className="max-w-7xl mx-auto px-6">
+          <section className="py-24 text-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+              <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-8">
+                <Sparkles size={16} />
+                <span>AI-powered code intelligence platform</span>
+              </div>
+              <h2 className="text-5xl md:text-8xl font-bold tracking-tight leading-tight">Discover and Search Code Instantly</h2>
+              <p className="mt-8 max-w-3xl mx-auto text-lg md:text-xl text-zinc-400">Explore repositories, functions, documentation, and get AI insights with futuristic analytics.</p>
+
+              <div className="mt-12 max-w-5xl mx-auto rounded-[2rem] border border-white/15 bg-white/5 backdrop-blur-2xl p-4 flex flex-col md:flex-row items-center gap-4 shadow-2xl">
+                <Search className="text-zinc-400" />
+                <input className="flex-1 bg-transparent outline-none text-lg w-full placeholder:text-zinc-500" placeholder="Search: auth middleware, vector indexing, JWT validation..." />
+                <button className="px-8 py-4 rounded-2xl bg-white text-black font-bold hover:scale-105 transition w-full md:w-auto">Search</button>
+              </div>
+            </motion.div>
+          </section>
+
+          {/* DASHBOARD PANELS */}
+          <section className="pb-20">
+            <div className="grid lg:grid-cols-3 gap-6">
+              <motion.div {...floatingAnimation} className="rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-2xl p-6">
+                <h3 className="font-semibold text-lg mb-5">Repository Explorer</h3>
+                <div className="space-y-4">
+                  <div className="p-4 rounded-2xl bg-black/50 border border-white/10">quantum-auth / src/auth.ts</div>
+                  <div className="p-4 rounded-2xl bg-black/50 border border-white/10">semantic-engine / search.py</div>
+                  <div className="p-4 rounded-2xl bg-black/50 border border-white/10">infra-core / ingress.yaml</div>
+                </div>
+              </motion.div>
+
+              <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }} className="rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-2xl p-6">
+                <h3 className="font-semibold text-lg mb-5">Live Code Intelligence</h3>
+                <pre className="rounded-2xl bg-black/60 border border-white/10 p-5 font-mono text-sm text-zinc-300 leading-7">
+{`const verifyToken = async (jwt) => {
+  const payload = await decode(jwt)
+  return payload?.user ?? null
+}`}
+                </pre>
+              </motion.div>
+
+              <motion.div animate={{ y: [0, -14, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-2xl p-6">
+                <h3 className="font-semibold text-lg mb-5">AI Answer</h3>
+                <div className="rounded-2xl bg-black/60 border border-white/10 p-5 text-zinc-300">
+                  This AI insight explains the code structure and flow of the repository.
+                  <button className="mt-5 w-full py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">Explain Architecture</button>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
+          {/* STATS */}
+          <section className="grid md:grid-cols-4 gap-6 pb-20">
+            {[["12.8K","Repositories",BarChart3],["358K","Indexed Files",FileCode2],["2.5K","Developers",Users],["AI","Semantic Search",BrainCircuit]].map(([num,label,Icon],index)=>(
+              <motion.div key={index} initial={{opacity:0,y:25}} animate={{opacity:1,y:0}} transition={{delay:index*0.15}} className="rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-xl p-6">
+                <Icon size={22} className="mb-4" />
+                <div className="text-3xl font-bold">{num}</div>
+                <div className="text-zinc-400 mt-2">{label}</div>
+              </motion.div>
+            ))}
+          </section>
+
+          {/* FEATURES */}
+          <section className="grid md:grid-cols-3 gap-6 pb-20">
+            {[[ShieldCheck,"Private Repo Security","Enterprise-grade encrypted indexing and access control."],[GitCommitHorizontal,"Commit Intelligence","Track changes, ownership, and code history instantly."],[Sparkles,"AI-native Search","Regex + semantic + architecture understanding in one engine."]].map(([Icon,title,desc],index)=>(
+              <motion.div key={index} initial={{opacity:0,y:25}} animate={{opacity:1,y:0}} transition={{delay:index*0.2}} className="rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-xl p-8">
+                <Icon size={28} />
+                <h3 className="text-2xl font-semibold mt-5">{title}</h3>
+                <p className="text-zinc-400 mt-4">{desc}</p>
+              </motion.div>
+            ))}
+          </section>
+
+          {/* FOOTER */}
+          <footer className="border-t border-white/10 py-10 text-center text-zinc-500">
+            <p>Built by @GitLawbSearch</p>
+          </footer>
+        </main>
+      </div>
+    </div>
+  );
+}
